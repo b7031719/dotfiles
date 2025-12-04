@@ -7,8 +7,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
+      vim.lsp.config('lua-ls', {
         capabilities = capabilities,
         settings = {
           Lua = {
@@ -19,19 +18,19 @@ return {
           },
         },
       })
-      lspconfig.pyright.setup({
+      vim.lsp.config('pyright', {
         capabilities = capabilities,
       })
-      lspconfig.ts_ls.setup({
+      vim.lsp.config('ts_ls', {
         capabilities = capabilities,
       })
-      lspconfig.bashls.setup({
+      vim.lsp.config('bashls', {
         capabilities = capabilities,
       })
-      lspconfig.html.setup({
+      vim.lsp.config('html', {
         capabilities = capabilities,
       })
-      lspconfig.cssls.setup({
+      vim.lsp.config('cssls', {
         capabilities = capabilities,
       })
 
