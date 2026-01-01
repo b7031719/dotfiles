@@ -1,6 +1,10 @@
 return {
 	{
 		"mason-org/mason.nvim",
+    enabled = function()
+      local is_nixos = vim.fn.executable("nixos-version") == 1      -- Do not enable if on NixOS as Mason installed binaries conflict with Nix
+      return not is_nixos
+    end,
     opts = {},
 	},
 	{
