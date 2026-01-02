@@ -18,21 +18,32 @@ return {
 					},
 				},
 			})
+      vim.lsp.enable("lua_ls")
+
 			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 			})
+      vim.lsp.enable("pyright")
+
 			vim.lsp.config("ts_ls", {
 				capabilities = capabilities,
 			})
+      vim.lsp.enable("ts_ls")
+
 			vim.lsp.config("bashls", {
 				capabilities = capabilities,
 			})
+      vim.lsp.enable("bashls")
+
 			vim.lsp.config("html", {
 				capabilities = capabilities,
 			})
+      vim.lsp.enable("html")
+
 			vim.lsp.config("cssls", {
 				capabilities = capabilities,
 			})
+      vim.lsp.enable("cssls")
 
       -- Diagnostic settings
 			vim.diagnostic.config({
