@@ -6,7 +6,6 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 		"MunifTanjim/nui.nvim",
-		{"3rd/image.nvim", enabled = (vim.fn.has("win32") == 0), opts = {}},
   },
 	lazy = true, -- neo-tree will lazily load itself
 	---@module "neo-tree"

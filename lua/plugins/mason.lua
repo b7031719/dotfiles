@@ -1,15 +1,17 @@
+local function is_not_nixos()
+  return vim.fn.executable("nixos-version") == 0
+end
+
 return {
 	{
 		"mason-org/mason.nvim",
-    enabled = function()
-      local is_nixos = vim.fn.executable("nixos-version") == 1      -- Do not enable if on NixOS as Mason installed binaries conflict with Nix
-      return not is_nixos
-    end,
+    enabled = is_not_nixos,
     opts = {},
 	},
 	{
 		-- Mason-lspconfig provides the ensure-installed function for installing language servers
 		"mason-org/mason-lspconfig.nvim",
+    enabled = is_not_nixos,
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
 			ensure_installed = {
@@ -24,6 +26,7 @@ return {
 	},
 	{
 		"jay-babu/mason-null-ls.nvim",
+    enabled = is_not_nixos,
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
 			ensure_installed = {
