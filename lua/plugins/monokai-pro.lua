@@ -1,24 +1,59 @@
--- Color theme for Neovim
 return {
-	"loctvl842/monokai-pro.nvim",
-	lazy = false,
-	priority = 1000,
-	opts = {
-		filter = "classic",
-		styles = {
-			comment = { italic = true },
-			keyword = { italic = true }, -- any other keyword
-			type = { italic = true }, -- (preferred) int, long, char, etc
-			storageclass = { italic = true }, -- static, register, volatile, etc
-			structure = { italic = true }, -- struct, union, enum, etc
-			parameter = { italic = true }, -- parameter pass in function
-			annotation = { italic = true },
-		},
-	},
-	config = function(_, opts)
-    require("monokai-pro").setup(opts)
-
-		-- Set the color scheme for Neovim
-		vim.cmd.colorscheme("monokai-pro")
-	end,
+  "khoido2003/monokai-v2.nvim",
+  priority = 1000,
+  config = function()
+    require("monokai-v2").setup({
+      -- Basic settings
+      transparent_background = false,
+      terminal_colors = true,
+      devicons = false,
+      
+      -- Syntax highlighting styles
+      styles = {
+        comment = { italic = true },
+        keyword = { italic = true },
+        type = { italic = false },
+        storageclass = { italic = false },
+        structure = { italic = false },
+        parameter = { italic = false },
+        annotation = { italic = false },
+        tag_attribute = { italic = false },
+      },
+      
+      -- Treesitter settings
+      treesitter = {
+        italic = false,
+      },
+      
+      -- Filter selection (default: classic for dark, light for light background)
+      filter = "classic", -- classic | light | machine | octagon | pro | ristretto | spectrum
+      
+      -- Day/night mode
+      day_night = {
+        enable = false,
+        day_filter = "pro",
+        night_filter = "spectrum",
+      },
+      
+      -- Incremental search style
+      inc_search = "background", -- underline | background
+      
+      -- Background clearing for floating windows
+      background_clear = {
+        "toggleterm",
+        "telescope",
+        "renamer",
+        "notify",
+      },
+      
+      -- Plugin-specific settings
+      plugins = {
+        indent_blankline = {
+          context_highlight = "default", -- default | pro
+          context_start_underline = false,
+        },
+      },
+    })
+    vim.cmd("colorscheme monokai-v2")
+  end,
 }
