@@ -148,8 +148,18 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
-hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("lid-toggle close"))
-hl.bind("switch:off:Lid Switch", hl.dsp.exec_cmd("lid_toggle open"))
+hl.bind("switch:on:Lid Switch", function()
+	hl.monitor({ output = "eDP-1", disabled = true })
+end, { locked = true })
+hl.bind("switch:off:Lid Switch", function()
+	hl.monitor({
+		output = "eDP-1",
+		mode = "preferred",
+		position = "auto",
+		scale = 1,
+		disabled = false,
+	})
+end, { locked = true })
 hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("ALT + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
