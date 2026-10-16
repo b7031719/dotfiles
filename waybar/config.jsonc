@@ -90,7 +90,7 @@
         // "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "⚠",
         // "format-alt": "{ifname}: {ipaddr}/{cidr}"
-        "on-click": "nmtui"
+        "on-click": "kitty -e nmtui"
     },
     "wireplumber": {
         "format": "{icon}",
